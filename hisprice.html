@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="vendor/jquery.js"></script>
-	<title></title>
+    <title></title>
 </head>
+
 <body>
-<nav class="clearfix">
+    <nav class="clearfix">
         <div class="menu">
             <div class="menubtn">
-                
             </div>
             <ul>
                 <li><a href="#">首页</a></li>
@@ -23,13 +24,32 @@
         </div>
         <div class="logo fl"><img src="img/logo.png"></div>
         <div class="search fl">
-            <input type="text" name="">
+            <input type="text" name="" id="search">
+            <button id="searchbtn">搜索</button>
         </div>
     </nav>
     <section>
-    
+        <div class=""></div>
     </section>
     <footer>
     </footer>
+    <script type="text/javascript">
+    $(function() {
+        $("#searchbtn").click(function() {
+            var keyword = $("#search").val();
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:5000/hello',
+                data: {
+                    'keyword': keyword
+                },
+                success: function(d) {
+                    console.log(d)
+                }
+            })
+        })
+    })
+    </script>
 </body>
+
 </html>

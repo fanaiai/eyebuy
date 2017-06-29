@@ -1,71 +1,79 @@
-body{
-	/*margin-left:200px;*/
+body {
+    /*margin-left:200px;*/
 }
-section{
-	width:100%;
-	height:700px;
-	background: #191a1a;
+
+section {
+    width: 100%;
+    height: 700px;
+    background: #191a1a;
 }
-nav{
+
+nav {
     height: 50px;
     width: 100%;
     overflow: hidden;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     z-index: 999;
 }
-.logo img{
+
+.logo img {
     height: 30px;
     margin-top: 10px;
     margin-left: 10px;
 }
-.fl{
-	float:left;
-}
-.fr{
-	float:right;
+
+.fl {
+    float: left;
 }
 
-
-nav .search{
-	margin-top:10px;
-	margin-left: calc(50px);
+.fr {
+    float: right;
 }
-.search input{
-	    line-height: 28px;
+
+nav .search {
+    margin-top: 10px;
+    margin-left: calc(50px);
+}
+
+.search input {
+    line-height: 28px;
     height: 28px;
     border: none;
-    border: 1px solid rgba(255,255,255,.3);
+    border: 1px solid rgba(255, 255, 255, .3);
     width: 400px;
     background: none;
-    color:#fff;
+    color: #fff;
+}
 
+.menu {
+    display: none;
+    position: fixed;
+    width: 200px;
+    background: #192f45;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 999;
 }
-.menu{
-	display: none;
-	position: fixed;
-	width:200px;
-	background: #192f45;
-	left:0;
-	top:0;
-	height: 100%;
-	z-index: 999;
 
+.menu ul {
+    margin-top: 70px;
 }
-.menu ul{
-	margin-top:70px;
-}
-.menu ul li{
+
+.menu ul li {
     display: block;
     padding: 0 20px;
     line-height: 40px;
     font-size: 16px;
 }
-.menu ul li a{
-	color:#fff;
+
+.menu ul li a {
+    color: #fff;
 }
+
 .menubtn {
     width: 40px;
     background: rgba(12, 14, 80, 0.54);
@@ -76,6 +84,507 @@ nav .search{
     border-radius: 50%;
     box-shadow: 1px 0px 11px #fff inset;
 }
-.mapboxgl-control-container{
-	display: none;
+
+.mapboxgl-control-container {
+    display: none;
 }
+
+
+/*catogary*/
+
+.contentbody {
+    min-width: 1190px;
+    margin: 0 auto;
+    color: #333;
+    height: auto;
+}
+
+.contentbody a {
+    color: #333;
+}
+
+.catogary,
+.list {
+    background: #eee;
+    background: #eee;
+    padding: calc((100% - 1190px) / 2);
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    height: auto;
+}
+
+nav.smtop {
+    height: 50px;
+    background: #e5e5e5;
+    padding: 0 80px 0 305px;
+    font-size: 12px;
+    color: #666;
+    line-height: 50px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+nav.smtop a,
+nav.smtop span {
+    color: #666;
+}
+
+.location {
+    position: relative;
+}
+
+.location:before {
+    content: "";
+    width: 17px;
+    height: 25px;
+    display: inline-block;
+    background: url(../img/l.png) no-repeat center;
+    position: relative;
+    left: -4px;
+    top: 4px;
+}
+
+.location ul {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: -4px;
+    width: 250px;
+    height: 210px;
+    background: #fff;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.location ul li {
+    display: inline-block;
+    width: 50px;
+    text-align: left;
+}
+
+.topmenu span,
+.topmenu a {
+    display: inline-block;
+    position: relative;
+    padding-right: 20px;
+}
+
+.topmenu span:after,
+.topmenu a:after {
+    content: "/";
+    display: inline-block;
+    position: absolute;
+    right: 6px;
+    top: -1px;
+}
+
+.menuandlogo {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 213px;
+}
+
+.menuandlogo .logo {
+    width: 100%;
+    background: #fff;
+    height: 213px
+}
+
+.menuandlogo .logo img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.menuandlogo .menu {
+    background: #c23b3b;
+    padding: 15px;
+    display: block;
+    position: relative;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 213px;
+    box-shadow: 3px 3px 5px #999;
+}
+
+.menuandlogo .menu li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.menuandlogo .menu a {
+    color: #fff;
+    padding-right: 15px;
+    position: relative;
+}
+
+.menuandlogo .menu a:after {
+    content: "/";
+    display: inline-block;
+    position: absolute;
+    right: 4px;
+    top: -7px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.menuandlogo .submenu {
+    display: none;
+    position: absolute;
+    background: #e3baba;
+    width: calc(1190px - 213px);
+    top: 213px;
+    left: 213px;
+    height: auto;
+    padding: 15px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #444;
+    box-sizing: border-box;
+}
+
+.menuandlogo .submenu>div>h3,
+.menuandlogo .submenu>div>div {
+    display: inline-block;
+}
+
+.menuandlogo .submenu>div>h3 {
+    width: 100px;
+    text-align: right;
+    position: relative;
+    padding-right: 18px;
+    font-weight: bold;
+}
+
+.menuandlogo .submenu>div>h3:after {
+    content: ">";
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    font-weight: bolder;
+}
+
+.menuandlogo .submenu>div {
+    border-bottom: 1px dashed #eec8ef;
+}
+
+.menuandlogo .submenu>div:last-child {
+    border: 0;
+}
+
+.menuandlogo .submenu>div>div>a {
+    position: relative;
+    display: inline-block;
+    padding-right: 19px;
+}
+
+.menuandlogo .submenu>div>div>a:after {
+    content: "|";
+    position: absolute;
+    display: inline-block;
+    right: 7px;
+    top: -2px;
+    font-size: 10px;
+}
+
+.topright {
+    margin-left: 213px;
+    padding-top: 50px;
+    padding-left: 80px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.search {
+    width: 600px;
+    position: relative;
+}
+
+.search input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    text-indent: 15px;
+    color: #333;
+}
+
+.search button {
+    border: 0;
+    background: none;
+    position: absolute;
+    top: 3px;
+    right: -1px;
+    height: 26px;
+    overflow: hidden;
+}
+
+.search button img {
+    height: 100%;
+}
+
+.hotsearch {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.hotsearch a {
+    color: 999px;
+    padding-right: 20px;
+}
+
+.midmenu {
+    width: 100%;
+    line-height: 40px;
+    background: #fefefe;
+    padding-left: 72px;
+    margin-top: 19px;
+    margin-left: -72px;
+}
+
+.midmenu a {
+    padding-right: 40px;
+    font-weight: bold;
+    color: #c23b3b;
+}
+
+.topright .banner {
+    margin-left: -72px;
+    height: 390px;
+    overflow: hidden;
+}
+
+.topright .banner a {
+    display: inline-block;
+    width: calc(50% - 4px);
+    float: left;
+    height: 191px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.topright .banner a:nth-child(2n) {
+    margin-right: 0;
+}
+
+.topright .banner a img {
+    width: 100%;
+}
+
+.listmenu {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #e01222;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.listmenu h4 {
+    font-weight: bold;
+}
+
+.listmenu a,
+.listmenu span {
+    color: #fff;
+}
+
+.listmenu .catmenu {
+    margin-left: 30px;
+    height: 40px;
+}
+
+.listmenu .catmenu a {
+    display: inline-block;
+    padding-left: 18px;
+    font-size: 12px;
+}
+
+.listmenu .gosource {
+    float: right;
+}
+
+.img5 {
+    margin-bottom: 4px;
+}
+
+.img5>div {
+    float: left;
+    width: calc((100% - 32px) / 5);
+    margin-right: 8px;
+    height: 300px;
+    background: #fff;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.img5>div:nth-child(5n){
+    margin-right: 0;
+}
+
+.img5 .img {
+    height: 190px;
+}
+
+.img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.img img {
+    width: 100%;
+}
+
+.img5>div .title {
+    position: absolute;
+    bottom: 10px;
+    height: 80px;
+}
+
+.img5>div .title a {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.img5>div .title>.price {
+    position: absolute;
+    bottom: 0;
+}
+
+.img5>div .title>.price span {
+    font-size: 16px;
+    color: red;
+}
+
+.img5>div .title>.price .oldprice {
+    font-size: 12px;
+    color: #999;
+}
+
+.img2>div {
+    float: left;
+    width: calc(50% - 4px);
+    margin-right: 4px;
+
+}
+
+.img2>div:last-child {
+    margin-right: 0;
+}
+
+
+/*list*/
+
+.list {}
+
+.menuand {
+    position: relative;
+}
+
+.menuand h3 {
+    line-height: 32px;
+    background: #c23b3b;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.menuand .menu {
+    display: none;
+    position: absolute;
+    top: 34px;
+    height: auto;
+}
+
+.list .topright {
+    margin: 0;
+    padding-left: 0;
+    overflow: hidden;
+}
+
+.list .topright .midmenu {
+    margin-left: 0;
+}
+
+.list .search {
+    margin-left: 40px;
+}
+
+.list .midmenu {
+    clear: both;
+    margin-top: 80px;
+}
+
+.classlist {
+    padding: 20px;
+    background: #fff;
+    line-height: 22px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.classlist dl {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+.classlist dl:last-child{
+	border-bottom: 0;
+}
+.classlist dl dd,
+.classlist dl dt {
+    float: left;
+}
+
+.classlist dl dt {
+    width: 150px;
+    color: #555;
+    font-size: 14px;
+    text-align: right;
+    line-height: 32px;
+    padding-right: 15px;
+    border-right: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.classlist dl .cats {
+    margin-left: 20px;
+}
+
+.classlist dl .cats span {
+    font-size: 12px;
+    padding: 0 10px;
+    margin-right: 10px;
+    display: inline-block;
+    line-height: 32px;
+        background: rgba(238, 238, 238, 0.2);
+    color: #170096;
+}
+
+.classlist dl .more {
+    float: right;
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 32px;
+    background: #c23b3b;
+}
+
+.classlist dl .more a {
+    color: #fff;
+    font-size: 12px;
+}
+
+.searchlist .count {
+    line-height: 40px;
+    font-size: 12px;
+}
+
+.itemlist{
+	background: #fff;
+}
+
