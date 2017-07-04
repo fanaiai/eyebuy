@@ -76,7 +76,7 @@
         </div>
             <div class="search fl clearfix">
                 <input type="text" name="search" id="search" placeholder="请输入商品名称或商品网址进行查询">
-                <button><img src="img/search.png"></button>
+                <button id="searchbtn"><img src="img/search.png"></button>
             <div class="hotsearch">
                 <a href="#">变频空调</a>
                 <a href="#">小米手机</a>
@@ -257,6 +257,21 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+        $(function(){
+$("#searchbtn").click(function(){
+    var keyword=$("#search").val();
+    $.ajax({
+        type:'post',
+        url:'http://localhost:5000/',
+        data:{'keyword':keyword},
+        success:function(d){
+            console.log(d)
+        }
+    })
+})
+})
+    </script>
 </body>
 
 </html>
