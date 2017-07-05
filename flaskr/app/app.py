@@ -2,6 +2,7 @@ from flask import Flask,session ,request,make_response,current_app,jsonify
 from flask_cors import *
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+import json
 
 app=Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -29,8 +30,9 @@ def getResult(keyword):
 	rs=[]
 	for i in r:
 		rs.append({"name":i.name,"price":i.price})
-	print(jsonify({"data":"rs"}))
-	# return jsonify(rs)
+	res={"data":rs}
+	print(json.dumps(res))
+	return json.dumps(res)
 getResult('小猪')
 @app.route("/",methods=['POST','GET'])
 def hello():
@@ -39,11 +41,11 @@ def hello():
 		r=getResult(keyword)
 		print('------%s' % r)
 		
-		return (r,200)
+		return getResult('小猪')
 	else:
 		# return 'get'
 		print(app.app_context().name)
 		return 's'
 
-# if __name__=='__main__':
-# 	app.run()
+if __name__=='__main__':
+	app.run()
