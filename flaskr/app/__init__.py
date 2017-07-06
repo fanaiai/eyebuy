@@ -1,4 +1,16 @@
-def create_app(config_name):
-	from api1_0 import api as api_1_0_blueprint
-	app.register_blueprint(api_1_0_blueprint,url_prefix='api/v1.0')
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+# import blueprint
+from .config import config
 
+db=SQLAlchemy()
+
+def create_app(config_name):
+	app=Flask(__name__)
+	app.config.from_object(config[config_name])
+	config[config_name].init_app()
+
+	db.init_app(app)
+	from .api1_0 import api as api_blueprint
+	app.register_blueprint(api_blueprint)
+	return app

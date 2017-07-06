@@ -2,6 +2,7 @@ from flask import Flask,session ,request,make_response,current_app,jsonify
 from flask_cors import *
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+from flask.ext.httpauth import HTTPBasicAuth
 import json
 
 app=Flask(__name__)
@@ -9,10 +10,6 @@ CORS(app, supports_credentials=True)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:11111111@localhost:3306/python?charset=utf8mb4'
 app.config['SQLALCHEMY_TRACK_MODIFYCATIONS']=True
 db=SQLAlchemy(app)
-
-# print(current_app.name)
-
-
 
 class Jiadian(db.Model):
 	__tablename__='jiadian'
@@ -29,9 +26,9 @@ def getResult(keyword):
 	r=Jiadian.query.filter(Jiadian.name.like("%"+keyword+"%")).all()
 	rs=[]
 	for i in r:
-		rs.append({"name":i.name,"price":i.price})
+		rs.append({"name":i.name,"price":i.price,"url":i.url})
 	res={"data":rs}
-	print(json.dumps(res))
+	# return res
 	return json.dumps(res)
 getResult('小猪')
 @app.route("/",methods=['POST','GET'])
@@ -39,9 +36,7 @@ def hello():
 	if request.method=='POST':
 		keyword=request.form['keyword']
 		r=getResult(keyword)
-		print('------%s' % r)
-		
-		return getResult('小猪')
+		return r
 	else:
 		# return 'get'
 		print(app.app_context().name)
