@@ -21,7 +21,7 @@ class Jiadian(db.Model):
 
 
 def getResult(keyword):
-	r=Jiadian.query.filter(Jiadian.name.swith(keyword)).all()
+	r=Jiadian.query.filter(Jiadian.name.endswith(keyword)).all()
 	print(r)
 
 getResult('小猪')
