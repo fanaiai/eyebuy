@@ -1,1 +1,3 @@
 http://blog.csdn.net/fwenzhou/article/details/8742649 使用Flask快速开发WEB应用-第二篇:Blueprint模块的应用
+
+http://www.cnblogs.com/yueerwanwan0204/p/5522749.html

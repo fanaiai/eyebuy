@@ -18,11 +18,18 @@ def getResult(keyword,source):
 		elif(i=="2"):
 			tb=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).limit(10).all()
 			tbcount=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).count()
-	r=jd+tb
 	count=jdcount+tbcount
 	rs=[]
-	for i in r:
-		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url})
+	for i in jd:
+		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":i.commentsnum})
+	for i in tb:
+		comments=0
+		c=json.loads(i.comments.replace("\'","\""))
+		if(type(c) is int):
+			comments=i.comments
+		else:
+			comments=c.get("total")
+		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":comments})
 	res={"data":rs,"count":count}
 	return json.dumps(res)
 

@@ -5,6 +5,7 @@ class Jiadian(db.Model):
 	name=db.Column(db.String(1000))
 	url=db.Column(db.String(1000))
 	price=db.Column(db.String(1000))
+	commentsnum=db.Column(db.String(10))
 
 
 	def __repr__(self):
@@ -17,3 +18,4 @@ class Taobaoitem(db.Model):
 	url=db.Column(db.String(1000))
 	price=db.Column(db.String(1000))
 	oriprice=db.Column(db.String(1000))
+	comments=db.Column(db.Text)
