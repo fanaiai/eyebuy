@@ -187,6 +187,7 @@ nav.smtop span {
     top: 0;
     z-index: 999;
     width: 213px;
+    cursor: pointer;
 }
 
 .menuandlogo .logo {
@@ -450,8 +451,11 @@ nav.smtop span {
 }
 
 .img5>div .title a {
-    font-size: 14px;
+font-size: 14px;
     line-height: 18px;
+    display: block;
+    height: 54px;
+    overflow: hidden;
 }
 
 .img5>div .title>.price {
@@ -461,7 +465,7 @@ nav.smtop span {
 
 .img5>div .title>.price span {
     font-size: 16px;
-    color: red;
+    color: #e03333;
 }
 
 .img5>div .title>.price .oldprice {
@@ -507,7 +511,7 @@ nav.smtop span {
 .list .topright {
     margin: 0;
     padding-left: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .list .topright .midmenu {
@@ -557,6 +561,9 @@ nav.smtop span {
 .classlist dl .cats {
     margin-left: 20px;
 }
+.classlist dl .cats .on{
+    background: #e03333;
+}
 
 .classlist dl .cats span {
     font-size: 12px;
@@ -566,6 +573,7 @@ nav.smtop span {
     line-height: 32px;
         background: rgba(238, 238, 238, 0.2);
     color: #170096;
+    cursor: pointer;
 }
 
 .classlist dl .more {
@@ -638,4 +646,21 @@ nav.smtop span {
     padding: 0 8px;
     background: #e6e6e6;
     line-height: 15px;
+}
+.floatsearch{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    text-align: center;
+}
+.floatsearch input{
+    width: 50%;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
 }

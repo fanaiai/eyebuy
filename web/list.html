@@ -7,9 +7,13 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="vendor/jquery.js"></script>
+    <!-- <script type="text/javascript" src="vendor/angular/angular.js"></script> -->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controller/itemlist.js"></script>
 </head>
 
-<body class="contentbody">
+<body class="contentbody" ng-app="app">
     <nav class="clearfix smtop">
         <div class="location fl">
         <span>北京</span>
@@ -32,11 +36,11 @@
             <a href="#">我的关注</a>
         </div>
     </nav>
-    <section class="list">
-
+    <section class="list" ng-controller="itemlist">
+        <div class="floatsearch"><input type="text" name="search" id="search" placeholder="请输入商品名称或商品网址进行查询" ng-model="keyword"></div>
         <div class="topright clearfix">
         <div class="menuand menuandlogo fl">
-            <h3>类别</h3>
+            <h3 ng-click="showMenu()">类别</h3>
             <ul class="menu">
                 <li><a href="#">家用电器</a></li>
                 <li><a href="#">手机</a><a href="#">运营商</a><a href="#">数码</a></li>
@@ -75,8 +79,8 @@
             </div>
         </div>
             <div class="search fl clearfix">
-                <input type="text" name="search" id="search" placeholder="请输入商品名称或商品网址进行查询">
-                <button id="searchbtn"><img src="img/search.png"></button>
+                <input type="text" name="search" id="search" placeholder="请输入商品名称或商品网址进行查询" ng-model="keyword">
+                <button id="searchbtn" ng-click="getList()"><img src="img/search.png"></button>
             <div class="hotsearch">
                 <a href="#">变频空调</a>
                 <a href="#">小米手机</a>
@@ -92,18 +96,12 @@
             </div>
         </div>
         <div class="searchlist">
-            <div class="count"><span>共有商品 1999 件</span></div>
+            <div class="count"><span>共有商品 {{d.count}} 件</span></div>
             <div class="classlist">
                 <dl class="source clearfix">
                     <dt>数据来源</dt>
                     <dd class="cats">
-                        <span>京东</span>
-                        <span>亚马逊</span>
-                        <span>淘宝</span>
-                        <span>天猫</span>
-                        <span>1号店</span>
-                        <span>苏宁</span>
-                        <span>国美</span>
+                        <span ng-repeat="item in sources track by $index" ng-click="addSource(item)" ng-class="{'on':item.checked}">{{item.name}}</span>
                     </dd>
                     <dd class="more"><a href="#">更多</a></dd>
                 </dl>
@@ -162,7 +160,7 @@
                         <a href="" class="btn-default">确定</a>
                     </div>
                     <div class="page fr">
-                        <span>共 1000 件商品</span>
+                        <span>共 {{d.count}} 件商品</span>
                         <a class='prepage'><</a>
                         <span>1/100</span>
                         <a class='nextpage'>></a>
@@ -172,106 +170,22 @@
                     </div>
                 </div>
                 <div class="items img5 clearfix">
-                    <div class="fl">
+
+                    <div class="fl" ng-repeat="item in itemlist">
                         <div class="img">
                             <img src="img/jd1.jpg">
                         </div>
                         <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd2.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd3.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd1.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd2.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd3.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd1.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd2.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
-                        </div>
-                    </div>
-                    <div class="fl">
-                        <div class="img">
-                            <img src="img/jd3.jpg">
-                        </div>
-                        <div class="title">
-                            <a href="#">艾美特(Airmate) FS40103R 五叶遥控落地扇/电风扇</a>
-                            <div class="price"><span>￥199.00</span><span class="oldprice">￥499.00</span></div>
+                            <a ng-href="{{item.url}}">{{item.name}}</a>
+                            <div class="price"><span>￥{{item.price}}</span><!-- <span class="oldprice">￥499.00</span> --></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script type="text/javascript">
-        $(function(){
-$("#searchbtn").click(function(){
-    var keyword=$("#search").val();
-    $.ajax({
-        type:'post',
-        url:'http://localhost:5000/',
-        data:{'keyword':keyword},
-        success:function(d){
-            console.log(d)
-        }
-    })
-})
-})
-    </script>
+
 </body>
+<script type="text/javascript"></script>
 
 </html>

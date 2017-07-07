@@ -2,6 +2,7 @@
 import os
 # import app
 from app import create_app,db
+from .api1_0 import api
 # from flask.ext.script import Manager,Shell
 # from flask.ext.migrate import Migrate,MigrateCommand
 
