@@ -173,7 +173,7 @@
 
                     <div class="fl" ng-repeat="item in itemlist">
                         <div class="img">
-                            <img src="https://img14.360buyimg.com/n1/jfs/t3253/232/4382660655/19785/d538d7e0/58413e42Ncc57b276.jpg">
+                            <img ng-src="{{item.images_url}}">
                         </div>
                         <div class="title">
                             <a ng-href="{{item.url}}">{{item.name}}</a>

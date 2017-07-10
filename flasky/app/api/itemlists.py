@@ -21,7 +21,7 @@ def getResult(keyword,source):
 	count=jdcount+tbcount
 	rs=[]
 	for i in jd:
-		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":i.commentsnum})
+		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":i.commentsnum,"images_url":i.images_url})
 	for i in tb:
 		comments=0
 		c=json.loads(i.comments.replace("\'","\""))
@@ -29,7 +29,7 @@ def getResult(keyword,source):
 			comments=i.comments
 		else:
 			comments=c.get("total")
-		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":comments})
+		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":comments,"images_url":"img/jd1.jpg"})
 	res={"data":rs,"count":count}
 	return json.dumps(res)
 
