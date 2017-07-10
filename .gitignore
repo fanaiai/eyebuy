@@ -1,3 +1,6 @@
 
 flaskr/app/__pycache__/__init__.cpython-36.pyc
 flaskr/app/__pycache__/config.cpython-36.pyc
+flasky/app/__pycache__/config.cpython-36.pyc
+*.pyc
+flasky/app/api/__pycache__/itemlists.cpython-36.pyc
