@@ -50,10 +50,15 @@ module.controller("itemlist", function($http, $scope) {
             // })  //这什么玩意
     }
     $scope.getList();
-    $("#search").keydown(function(e){
+    $("#search1").keydown(function(e){
     	if(e.keyCode==13){
     		$scope.getList();
     	}
+    })
+    $("#search").keydown(function(e){
+        if(e.keyCode==13){
+            $scope.getList();
+        }
     })
 
     $scope.showMenu=function(){
