@@ -161,9 +161,9 @@
                     </div>
                     <div class="page fr">
                         <span>共 {{d.count}} 件商品</span>
-                        <a class='prepage'><</a>
-                        <span>1/100</span>
-                        <a class='nextpage'>></a>
+                        <a class='prepage' ng-click="gotopage(0)"><</a>
+                        <span>{{curpage}}/{{totalpage}}</span>
+                        <a class='nextpage' ng-click="gotopage(1)">></a>
                     </div>
                     <div class="sendsite fr">
                         <span>发货地</span>

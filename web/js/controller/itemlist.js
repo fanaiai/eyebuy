@@ -11,7 +11,7 @@ module.controller("itemlist", function($http, $scope) {
     $scope.itemlist = [];
     $scope.sources = [{ "name": "京东", "type": "1", "checked": false }, { "name": "淘宝", "type": "2", "checked": false }]
     $scope.keyword = "";
-
+    $scope.curpage=1;
     $scope.post = {
         "source": [],
         "keyword": $scope.keyword
@@ -28,6 +28,7 @@ module.controller("itemlist", function($http, $scope) {
     $scope.getList = function() {
     	$scope.postData={}
     	$scope.postData.keyword=$scope.keyword
+        $scope.postData.page=$scope.curpage
     	$scope.postData.source=$scope.post.source.join(",")
         $.ajax({
                 type: "post",
@@ -36,6 +37,7 @@ module.controller("itemlist", function($http, $scope) {
                 "success": function(d) {
                 	$scope.d=JSON.parse(d)
                     $scope.itemlist = $scope.d.data
+                    $scope.totalpage=$scope.d.totalpage
                     $scope.$apply();
                 }
             })
@@ -52,11 +54,13 @@ module.controller("itemlist", function($http, $scope) {
     $scope.getList();
     $("#search1").keydown(function(e){
     	if(e.keyCode==13){
+            $scope.curpage=1
     		$scope.getList();
     	}
     })
     $("#search").keydown(function(e){
         if(e.keyCode==13){
+            $scope.curpage=1
             $scope.getList();
         }
     })
@@ -67,5 +71,19 @@ module.controller("itemlist", function($http, $scope) {
     	else{
     	$(".menu").slideUp()	
     	}
+    }
+    $scope.gotopage=function(f){
+        if(f==0){
+            if($scope.curpage>1){
+                $scope.curpage -=1;
+                $scope.getList();
+            }
+        }
+        else if(f==1){
+            if($scope.curpage<$scope.totalpage){
+                $scope.curpage +=1;
+                $scope.getList();
+            }
+        }
     }
 })
