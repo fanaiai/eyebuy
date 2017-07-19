@@ -1,5 +1,5 @@
 from . import api
-from ..models import Jiadian,Taobaoitem
+from ..models import Jiadian,Taobaoitem,Yihaoitem
 from .. import db
 from flask import request
 import json
@@ -13,6 +13,8 @@ def getResult(keyword,source,page):
 		if(i==""):
 			jd=Jiadian.query.filter(Jiadian.name.like('%'+keyword+'%')).slice(pagel,pager).all()
 			jdcount=Jiadian.query.filter(Jiadian.name.like('%'+keyword+'%')).count()
+			yihao=Yihaoitem.query.filter(Yihaoitem.name.like('%'+keyword+'%')).slice(pagel,pager).all()
+			yihaocount=Yihaoitem.query.filter(Yihaoitem.name.like('%'+keyword+'%')).count()
 			tb=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).slice(pagel,pager).all()
 			tbcount=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).count()
 		elif(i=="1"):
@@ -21,9 +23,14 @@ def getResult(keyword,source,page):
 		elif(i=="2"):
 			tb=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).slice(pagel,pager).all()
 			tbcount=Taobaoitem.query.filter(Taobaoitem.name.like('%'+keyword+'%')).count()
-	count=jdcount+tbcount
+		elif(i=="3"):
+			yihao=Yihaoitem.query.filter(Yihaoitem.name.like('%'+keyword+'%')).slice(pagel,pager).all()
+			yihaocount=Yihaoitem.query.filter(Yihaoitem.name.like('%'+keyword+'%')).count()
+	count=jdcount+tbcount+yihaocount
 	rs=[]
 	for i in jd:
+		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":i.commentsnum,"images_url":i.images_url})
+	for i in yihao:
 		rs.append({"name":i.name,"price":i.price if i.price!='无' else i.oriprice,"url":i.url,"comments":i.commentsnum,"images_url":i.images_url})
 	for i in tb:
 		comments=0
